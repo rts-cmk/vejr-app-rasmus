@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./weatherApp.css"
 
 export default function WeatherApp(){
     const [city, setCity] = useState("Odense")
@@ -17,6 +18,8 @@ export default function WeatherApp(){
 
     const [cityData, setCityData] = useState(null)
 
+    console.log(cityData)
+
     useEffect(() => {
         fetch(CITY_URL).then(response => response.json()).then(data => setCityData(data))
     },[city])
@@ -30,7 +33,10 @@ export default function WeatherApp(){
                 <h1>vejret i {city}</h1>
                 {cityData && 
                     <>
-                        <p>Vejr: {cityData.weather[0].main}</p>
+                        <div className="VejrIcon">
+                            <p>Vejr: {cityData.weather[0].main}</p>
+                            <img src={`https://openweathermap.org/img/wn/${cityData.weather[0].icon}.png`} alt="" />
+                        </div>
                         <p>Temperatur: {Math.floor(cityData.main.temp - 273.15)}°C</p>
                         <p>{cityData.clouds.all}% skyet</p>
                         <p>vind: {cityData.wind.speed}m/s</p>
