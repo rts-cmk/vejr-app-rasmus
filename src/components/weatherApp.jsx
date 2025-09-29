@@ -5,8 +5,8 @@ export default function WeatherApp(){
     const [city, setCity] = useState("Odense")
     const CORDS_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${city},DK&limit=1&appid=dc8259c7cf20d3a5f68b69d860ddee29`
 
-    const [lat, setLat] = useState(0)
-    const [lon, setLon] = useState(0)
+    const [lat, setLat] = useState(55.3997)
+    const [lon, setLon] = useState(10.3852)
     const CITY_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=dc8259c7cf20d3a5f68b69d860ddee29`
 
     useEffect(() => {
@@ -17,8 +17,6 @@ export default function WeatherApp(){
     },[city])
 
     const [cityData, setCityData] = useState(null)
-
-    console.log(cityData)
 
     useEffect(() => {
         fetch(CITY_URL).then(response => response.json()).then(data => setCityData(data))
