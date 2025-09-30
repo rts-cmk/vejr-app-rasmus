@@ -2,6 +2,7 @@ import { useState } from "react"
 import CitySearch from "./components/CitySearch"
 import WeatherDisplay from "./components/WeatherDisplay"
 import FiveDayWeather from "./components/FiveDayWeather"
+import "./App.css"
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
     <>
       <CitySearch result={setCityData} />
       <WeatherDisplay city={cityData} />
-      <FiveDayWeather ciry={cityData} />
+      <FiveDayWeather city={cityData} />
     </>
   )
 }

@@ -1,3 +1,5 @@
+import "./CitySearch.css"
+
 export default function CitySearch({ result }){
 
     const API_KEY = import.meta.env.VITE_API_KEY
@@ -23,6 +25,7 @@ export default function CitySearch({ result }){
 
     return(
         <form onSubmit={submitHandeler}>
+            <label>Skriv by: </label>
             <input type="search" name="city"/>
             <button type="submit">Søg</button>
         </form>

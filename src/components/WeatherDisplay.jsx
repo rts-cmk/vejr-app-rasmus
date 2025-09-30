@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import "./weatherApp.css"
 
 export default function WeatherDisplay({ city }){
-
     const [weatherData, setWeatherData] = useState(null)
 
     useEffect(() => {
@@ -25,7 +24,6 @@ export default function WeatherDisplay({ city }){
         const data = await response.json()
 
         setWeatherData(data)
-        console.log(data)
         }
 
         fetchData()
@@ -37,8 +35,8 @@ export default function WeatherDisplay({ city }){
         <section>
             <h1>Vejret i {city?.name}</h1>
             <figure>
-                <p>Vejr: {weatherData.weather[0].main}</p>
-                <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`} alt="" />
+                <p>Vejr: {weatherData.weather[0].description}</p>
+                <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`} alt={weatherData.weather[0].description} />
             </figure>
             <p>Temperatur: {weatherData.main.temp}°C</p>
             <p>{weatherData.clouds.all}% skyet</p>

@@ -4,32 +4,17 @@ figure{
     margin: 0;
 }
 
-#root{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-label{
-    font-size: 1.5em;
-    font-weight: bold;
-
-}
-
-input{
-    width: 15em;
-    border-radius: 5px;
-    height: 1.5em;
-}
-
 h1{
     font-size: 3em;
 }
 
 p{
     font-size: 1.5em;
+    margin-top: 0;
 }
 
 img{
-    width: 80px;
+    width: 50px;
+    height: 26px;
+    object-fit: cover;
 }
