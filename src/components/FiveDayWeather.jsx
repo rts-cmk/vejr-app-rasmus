@@ -22,7 +22,6 @@ export default function FiveDayWeather({ city }){
             const response = await fetch(url)
             const data = await response.json()
             setFiveDatData(data.list)
-            console.log(data.list)
         }
 
         fetchData()
@@ -44,7 +43,7 @@ export default function FiveDayWeather({ city }){
                 {fiveDayData.map((elm) => {
                     return(
                     <tr key={elm.dt_txt}>
-                        <th>{elm.dt_txt}</th>
+                        <th>{new Date(elm.dt_txt).getDate()}/{new Date(elm.dt_txt).getMonth() + 1}/{new Date(elm.dt_txt).getFullYear()} kl. {new Date(elm.dt_txt).getHours()}.00</th>
                         <th>{elm.weather[0].description} <img src={`https://openweathermap.org/img/wn/${elm.weather[0].icon}.png`} alt={elm.weather[0].description} /></th>
                         <th>{elm.main.temp}°C</th>
                         <th>{elm.clouds.all}%</th>
