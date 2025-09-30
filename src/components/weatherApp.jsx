@@ -26,21 +26,18 @@ export default function WeatherApp(){
         <>
             <label>Skriv Byen: </label>
             <input type="text" onChange={(e) => setCity(e.target.value)}/>
-
-            <section>
-                <h1>Vejret i {city}</h1>
-                {cityData && 
-                    <>
-                        <div className="VejrIcon">
-                            <p>Vejr: {cityData.weather[0].main}</p>
-                            <img src={`https://openweathermap.org/img/wn/${cityData.weather[0].icon}.png`} alt="" />
-                        </div>
-                        <p>Temperatur: {Math.floor(cityData.main.temp - 273.15)}°C</p>
-                        <p>{cityData.clouds.all}% skyet</p>
-                        <p>vind: {cityData.wind.speed} m/s</p>
-                    </>
-                }
-            </section>
+            {cityData &&
+                <section>
+                    <h1>Vejret i {cityData.name}</h1>
+                    <div className="VejrIcon">
+                        <p>Vejr: {cityData.weather[0].main}</p>
+                        <img src={`https://openweathermap.org/img/wn/${cityData.weather[0].icon}.png`} alt="" />
+                    </div>
+                    <p>Temperatur: {Math.floor(cityData.main.temp - 273.15)}°C</p>
+                    <p>{cityData.clouds.all}% skyet</p>
+                    <p>vind: {cityData.wind.speed} m/s</p>
+                </section>
+            }
         </>
     )
 }
