@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import "./weatherApp.css"
 
 export default function WeatherApp(){
-    const [city, setCity] = useState("Odense")
+    const [city, setCity] = useState("Roskilde")
     const CORDS_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${city},DK&limit=1&appid=dc8259c7cf20d3a5f68b69d860ddee29`
 
-    const [lat, setLat] = useState(55.3997)
-    const [lon, setLon] = useState(10.3852)
+    const [lat, setLat] = useState(55.6433478)
+    const [lon, setLon] = useState(12.0819247)
     const CITY_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=dc8259c7cf20d3a5f68b69d860ddee29`
 
     useEffect(() => {
@@ -28,7 +28,7 @@ export default function WeatherApp(){
             <input type="text" onChange={(e) => setCity(e.target.value)}/>
 
             <section>
-                <h1>vejret i {city}</h1>
+                <h1>Vejret i {city}</h1>
                 {cityData && 
                     <>
                         <div className="VejrIcon">
@@ -37,7 +37,7 @@ export default function WeatherApp(){
                         </div>
                         <p>Temperatur: {Math.floor(cityData.main.temp - 273.15)}°C</p>
                         <p>{cityData.clouds.all}% skyet</p>
-                        <p>vind: {cityData.wind.speed}m/s</p>
+                        <p>vind: {cityData.wind.speed} m/s</p>
                     </>
                 }
             </section>
