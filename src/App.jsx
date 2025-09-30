@@ -1,10 +1,17 @@
-import WeatherApp from "./components/weatherApp"
+import { useState } from "react"
+import CitySearch from "./components/CitySearch"
+import WeatherDisplay from "./components/WeatherDisplay"
+import FiveDayWeather from "./components/FiveDayWeather"
 
 function App() {
 
+  const [cityData, setCityData] = useState(null)
+
   return (
     <>
-      <WeatherApp/>
+      <CitySearch result={setCityData} />
+      <WeatherDisplay city={cityData} />
+      <FiveDayWeather ciry={cityData} />
     </>
   )
 }
