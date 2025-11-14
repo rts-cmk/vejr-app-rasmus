@@ -1,23 +1,7 @@
-.VejrIcon{
+figure{
     display: flex;
-}
-
-#root{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-label{
-    font-size: 1.5em;
-    font-weight: bold;
-
-}
-
-input{
-    width: 15em;
-    border-radius: 5px;
-    height: 1.5em;
+    padding: 0;
+    margin: 0;
 }
 
 h1{
@@ -26,8 +10,11 @@ h1{
 
 p{
     font-size: 1.5em;
+    margin-top: 0;
 }
 
 img{
-    width: 80px;
+    width: 50px;
+    height: 26px;
+    object-fit: cover;
 }

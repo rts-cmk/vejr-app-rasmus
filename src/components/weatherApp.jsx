@@ -3,6 +3,7 @@ import "./weatherApp.css"
 
 export default function WeatherApp(){
     const [city, setCity] = useState("Roskilde")
+
     const CORDS_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${city},DK&limit=1&appid=`
 
     const [lat, setLat] = useState(55.6433478)
